@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "accreditations",
+  "info": {
+    "singularName": "accreditation",
+    "pluralName": "accreditations",
+    "displayName": "Accreditation"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "academic_programme": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::academic-programme.academic-programme",
+      "inversedBy": "accreditations"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "accreditation",
+        "re-accreditation"
+      ],
+      "required": true
+    },
+    "accredited_date": {
+      "type": "date",
+      "required": true
+    },
+    "mqr_recorded_accredited_date": {
+      "type": "date"
+    },
+    "phase": {
+      "type": "integer",
+      "required": true
+    },
+    "expiry_date": {
+      "type": "date",
+      "required": true
+    },
+    "jpt_approval_letter_reference_number": {
+      "type": "string"
+    },
+    "remarks": {
+      "type": "richtext"
+    }
+  }
+}
