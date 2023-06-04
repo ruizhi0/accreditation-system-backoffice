@@ -11,14 +11,13 @@ const App = () => {
   useEffect(() => {
     const config = {
       headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_STRAPI_API_KEY}`,
+        Authorization: `Bearer ${import.meta.env.VITE_STRAPI_API_KEY}`,
       },
     };
 
     axios
       .get("http://localhost:1337/api/academic-programmes", config)
       .then((res) => {
-        console.log("res.data", res.data);
         setAcademicProgrammes(res.data.data);
       });
   }, []);
