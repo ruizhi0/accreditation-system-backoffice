@@ -1,7 +1,7 @@
 import { AcademicProgramme } from "./types/academic-programmes";
 import AcademicProgrammeView from "./components/AcademicProgrammeView";
-import axios from "axios";
 import { useState, useEffect } from "react";
+import academicProgrammeService from "./services/academic-programmes";
 
 const App = () => {
   const [academicProgrammes, setAcademicProgrammes] = useState(
@@ -9,17 +9,9 @@ const App = () => {
   );
 
   useEffect(() => {
-    const config = {
-      headers: {
-        Authorization: `Bearer ${import.meta.env.VITE_STRAPI_API_KEY}`,
-      },
-    };
-
-    axios
-      .get("http://localhost:1337/api/academic-programmes", config)
-      .then((res) => {
-        setAcademicProgrammes(res.data.data);
-      });
+    academicProgrammeService
+      .getMany()
+      .then((res) => setAcademicProgrammes(res.data));
   }, []);
 
   return (
