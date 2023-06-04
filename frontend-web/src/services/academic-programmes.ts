@@ -9,7 +9,13 @@ const config = {
 };
 
 const getMany = () => {
-  return axios.get(BASE_URL, config).then((res) => res.data);
+  return axios
+    .get(BASE_URL, config)
+    .then((res) => res.data)
+    .catch((error) => {
+      alert("Unable to get academic programmes registered");
+      console.log(error);
+    });
 };
 
 const getById = (id: number) => {
