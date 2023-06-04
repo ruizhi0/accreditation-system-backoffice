@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "academic_programmes",
+  "info": {
+    "singularName": "academic-programme",
+    "pluralName": "academic-programmes",
+    "displayName": "Academic Programme"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "graduate_level": {
+      "type": "enumeration",
+      "enum": [
+        "undergraduate",
+        "postgraduate"
+      ],
+      "required": true
+    },
+    "study_mode": {
+      "type": "enumeration",
+      "enum": [
+        "course work",
+        "clinical"
+      ],
+      "required": true
+    },
+    "nec_2010": {
+      "type": "string",
+      "required": true
+    },
+    "nec_2020": {
+      "type": "string"
+    },
+    "min_semester": {
+      "type": "integer",
+      "required": true
+    },
+    "max_semester": {
+      "type": "integer",
+      "required": true
+    },
+    "required_graduation_credit": {
+      "type": "integer",
+      "required": true
+    },
+    "degree_qualification_type": {
+      "type": "enumeration",
+      "enum": [
+        "homegrown",
+        "professional"
+      ]
+    }
+  }
+}
