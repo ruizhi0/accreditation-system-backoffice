@@ -19,7 +19,13 @@ const getMany = () => {
 };
 
 const getById = (id: number) => {
-  return axios.get(`${BASE_URL}/${id}`, config).then((res) => res.data);
+  return axios
+    .get(`${BASE_URL}/${id}`, config)
+    .then((res) => res.data)
+    .catch((error) => {
+      alert(`Unable to get academic programme with id=${id}`);
+      console.log(error);
+    });
 };
 
 export default {
