@@ -4,7 +4,8 @@
   "info": {
     "singularName": "academic-programme",
     "pluralName": "academic-programmes",
-    "displayName": "Academic Programme"
+    "displayName": "Academic Programme",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -62,6 +63,12 @@
       "relation": "oneToMany",
       "target": "api::accreditation.accreditation",
       "mappedBy": "academic_programme"
+    },
+    "faculty": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::faculty.faculty",
+      "inversedBy": "academic_programmes"
     }
   }
 }
