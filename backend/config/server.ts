@@ -4,7 +4,7 @@ export default ({ env }) => ({
   host: env("HOST", "0.0.0.0"),
   port: env.int("PORT", 1337),
   cron: {
-    enabled: false,
+    enabled: true,
     tasks: cronTasks,
   },
   app: {

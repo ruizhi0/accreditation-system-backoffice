@@ -54,16 +54,21 @@ export default {
       console.log("targets", JSON.stringify(targets));
 
       for (const target of targets) {
+        const emailHtmlContent: string = target.details
+          .map(
+            (x) =>
+              `<p>${x.accreditation_type} of ${x.academic_programme} is expiring on ${x.expiry_date}</p>`
+          )
+          .join();
+
         try {
           const emailOptions = {
             to: target.email,
             subject: "Reminder to prepare accreditation submission",
-            html: target.details.map(
-              (x) =>
-                `<p>${x.accreditation_type} of ${x.academic_programme} is expiring on ${x.expiry_date}</p>`
-            ),
+            html: emailHtmlContent,
           };
 
+          // TODO: setup and test email sending
           await strapi.plugins["email"].services.email.send(emailOptions);
         } catch (error) {
           strapi.log.error(`Failed to send email to ${target.email}`, error);
